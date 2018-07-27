@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "871194786373",
+    "firebase_url": "https://fitvisor-5a79c.firebaseio.com",
+    "project_id": "fitvisor-5a79c",
+    "storage_bucket": "fitvisor-5a79c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871194786373:android:b33702ec08952268",
+        "android_client_info": {
+          "package_name": "e.vishal.fitvisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871194786373-ond8pj6olhhbnfp90aoah80e3ljmok5b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "e.vishal.fitvisor",
+            "certificate_hash": "07f6feddedcc0808c890c9b80a03f4392227dcd5"
+          }
+        },
+        {
+          "client_id": "871194786373-brochsglp4g8q505h1tsgkgtl3qpjv1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVJd2YCCeDF5wvr9s9dT1ABwkImHjAQQc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871194786373-brochsglp4g8q505h1tsgkgtl3qpjv1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
