@@ -30,12 +30,12 @@
 
 
         <RadioGroup
-            android:id="@+id/rad_grp_goals"
+            android:id="@+id/rad_grp_plans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/rad_fat_loss"
+                android:id="@+id/rad_one"
                 android:textSize="15sp"
                 android:text="FitDiabetes"
                 android:layout_width="wrap_content"
@@ -49,14 +49,14 @@
                android:paddingBottom="20dp"
                android:paddingTop="15dp"/>
             <RadioButton
-                android:id="@+id/rad_weight_gain"
+                android:id="@+id/rad_two"
                 android:textSize="15sp"
                 android:text="FitHtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <RadioButton
-                android:id="@+id/rad_muscle_building"
+                android:id="@+id/rad_three"
                 android:textSize="15sp"
                 android:text="FitThyroid"
                 android:layout_width="wrap_content"

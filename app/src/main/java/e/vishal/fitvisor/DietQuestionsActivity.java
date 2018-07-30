@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DietQuestionsActivity extends AppCompatActivity {
 
@@ -15,6 +17,8 @@ public class DietQuestionsActivity extends AppCompatActivity {
 
     RadioButton radFatLoss,radWeightGain,radMuscleBuilding;
     RadioGroup grpMeals,grpGoals,grpSupplements;
+    View layoutDiabetes, layoutHtn, layoutThyroid;
+    Button btnProceed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +29,10 @@ public class DietQuestionsActivity extends AppCompatActivity {
         TextView levelText = (TextView) findViewById(R.id.txt_level);
         position = getIntent().getStringExtra("WEIGHT");
 
-
-
-
+        layoutDiabetes = findViewById(R.id.layout_diabetes);
+        layoutHtn = findViewById(R.id.layout_htn);
+        layoutThyroid = findViewById(R.id.layout_thyroid);
+        btnProceed = findViewById(R.id.btn_get_workout);
 
 
         radFatLoss = (RadioButton) findViewById(R.id.rad_fat_loss);
@@ -39,21 +44,49 @@ public class DietQuestionsActivity extends AppCompatActivity {
         grpGoals = (RadioGroup) findViewById(R.id.rad_grp_goals);
         grpSupplements = (RadioGroup) findViewById(R.id.rad_grp_suppl);
 
+        btnProceed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(fitnessGoal == null) {
+                    Toast.makeText(getApplicationContext(), "Select your issue!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                switch (fitnessGoal){
+                    case "Diabetes":
+                    case "Hypertension":
+                    case "Thyroid":
+                        startActivity(new Intent(DietQuestionsActivity.this, FinalActivity.class)
+                                .putExtra("issue", fitnessGoal));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
 
         grpGoals.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
-                    case R.id.rad_fat_loss:
+                    case R.id.rad_fat_loss: // Diabetes
                         fitnessGoal = "Diabetes";
+                        layoutDiabetes.setVisibility(View.VISIBLE);
+                        layoutHtn.setVisibility(View.GONE);
+                        layoutThyroid.setVisibility(View.GONE);
                         break;
-                    case R.id.rad_weight_gain:
+                    case R.id.rad_weight_gain: // Hypertension
                         fitnessGoal = "Hypertension";
+                        layoutDiabetes.setVisibility(View.GONE);
+                        layoutHtn.setVisibility(View.VISIBLE);
+                        layoutThyroid.setVisibility(View.GONE);
                         break;
-                    case R.id.rad_muscle_building:
+                    case R.id.rad_muscle_building: // Thyroid
                         fitnessGoal = "Thyroid";
+                        layoutDiabetes.setVisibility(View.GONE);
+                        layoutHtn.setVisibility(View.GONE);
+                        layoutThyroid.setVisibility(View.VISIBLE);
                         break;
-
                 }
             }
         });
